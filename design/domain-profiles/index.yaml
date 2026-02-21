@@ -1,0 +1,67 @@
+# Domain Profiles — Maps project domain to design presets + template stack
+# Used by stack-detector (Phase 1) and craft-design (Phase 2)
+
+domains:
+  automation:
+    description: Workflow automation, integration platforms, CI/CD tools
+    palette: automation
+    typography: heading-sans
+    layout: dashboard
+    template: sveltekit-dashboard
+    examples: [n8n, zapier-like, github-actions]
+
+  plugin-tool:
+    description: Browser extensions, IDE plugins, developer tools
+    palette: plugin-tool
+    typography: system-clean
+    layout: landing
+    template: astro-landing
+    examples: [DXTnavis, vscode-extensions, chrome-extensions]
+
+  ai-ml:
+    description: Machine learning, AI applications, LLM tools
+    palette: ai-ml
+    typography: heading-sans
+    layout: dashboard
+    template: sveltekit-dashboard
+    examples: [ai-master-class, ml-pipelines, llm-apps]
+
+  research:
+    description: Academic research, papers, ontologies
+    palette: plugin-tool  # clean, readable
+    typography: system-clean
+    layout: landing
+    template: astro-landing  # or hugo-research when available
+    examples: [bim-ontology, thesis-projects]
+
+  saas:
+    description: SaaS products, web applications
+    palette: plugin-tool
+    typography: heading-sans
+    layout: landing
+    template: astro-landing  # or nextjs-app when available
+    examples: [resumely, web-apps]
+
+  devtool:
+    description: CLI tools, terminals, development utilities
+    palette: terminal
+    typography: mono-terminal
+    layout: dashboard
+    template: sveltekit-dashboard  # or html-terminal when available
+    examples: [frontend-template, cli-tools]
+
+  education:
+    description: Courses, tutorials, learning platforms
+    palette: ai-ml
+    typography: heading-sans
+    layout: dashboard
+    template: sveltekit-dashboard
+    examples: [ai-master-class, online-courses]
+
+  simulation:
+    description: Physics simulation, game development, 3D visualization
+    palette: automation
+    typography: heading-sans
+    layout: dashboard
+    template: sveltekit-dashboard
+    examples: [physical-unity, game-projects]

@@ -1,0 +1,138 @@
+# content.schema.yaml — Structure definition for content.json
+# page-writer generates content.json following this schema.
+# Templates import content.json and render components accordingly.
+
+description: |
+  Defines the structure of content.json that page-writer generates
+  from Phase 1 analysis results and Phase 2 design profile.
+
+schema:
+  meta:
+    required: true
+    fields:
+      title:
+        type: string
+        description: Project name
+        example: "n8n"
+      tagline:
+        type: string
+        description: One-line project description (80-220 chars)
+        example: "Workflow automation for technical teams"
+      description:
+        type: string
+        description: Extended description (1-3 sentences)
+      github:
+        type: url
+        description: GitHub repository URL
+      live:
+        type: url
+        description: Live site URL (if exists)
+      domain:
+        type: string
+        description: Domain classification from domain-profiles
+        example: "automation"
+
+  hero:
+    required: true
+    fields:
+      headline:
+        type: string
+        description: Main hero headline
+      description:
+        type: string
+        description: Hero subtitle/description
+      badges:
+        type: array
+        items: string
+        description: Tech badges or status tags
+        example: ["TypeScript", "Vue 3", "Production"]
+
+  sections:
+    required: true
+    type: array
+    description: Ordered list of content sections
+    items:
+      type: string
+      description: Section type identifier
+      enum:
+        - features
+        - architecture
+        - tech-stack
+        - metrics
+        - timeline
+        - problem-solution
+
+  features:
+    required: false
+    type: array
+    items:
+      fields:
+        title:
+          type: string
+        description:
+          type: string
+        icon:
+          type: string
+          description: Icon identifier or emoji
+
+  architecture:
+    required: false
+    fields:
+      description:
+        type: string
+      diagram:
+        type: string
+        description: Path to Mermaid diagram file
+      modules:
+        type: array
+        items:
+          fields:
+            name:
+              type: string
+            description:
+              type: string
+            files:
+              type: number
+              description: File count
+
+  tech_stack:
+    required: false
+    type: array
+    items:
+      fields:
+        category:
+          type: string
+          example: "Frontend"
+        items:
+          type: array
+          items:
+            fields:
+              name:
+                type: string
+              version:
+                type: string
+
+  metrics:
+    required: false
+    type: array
+    items:
+      fields:
+        label:
+          type: string
+          example: "Total Commits"
+        value:
+          type: string
+          example: "2,847"
+
+  timeline:
+    required: false
+    type: array
+    items:
+      fields:
+        date:
+          type: string
+          format: "YYYY-MM"
+        title:
+          type: string
+        description:
+          type: string

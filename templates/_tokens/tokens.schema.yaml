@@ -1,0 +1,105 @@
+# tokens.schema.yaml — CSS Custom Properties contract for --pn-* tokens
+# All templates MUST consume these tokens. page-writer MUST generate them.
+
+description: |
+  Defines the required CSS custom properties that page-writer generates
+  and templates consume. All properties use the --pn- prefix.
+
+required_properties:
+  # Colors — Background
+  --pn-bg-primary:
+    type: color
+    description: Main page background
+    example: "#0d1117"
+  --pn-bg-secondary:
+    type: color
+    description: Secondary/section background
+    example: "#161b22"
+  --pn-bg-card:
+    type: color
+    description: Card/panel background
+    example: "#1c2130"
+
+  # Colors — Text
+  --pn-text-primary:
+    type: color
+    description: Primary text color
+    example: "#e6edf3"
+  --pn-text-secondary:
+    type: color
+    description: Secondary/subtitle text
+    example: "#8b949e"
+  --pn-text-muted:
+    type: color
+    description: Muted/caption text
+    example: "#484f58"
+
+  # Colors — Accent
+  --pn-accent:
+    type: color
+    description: Primary accent color
+    example: "#ea4b71"
+  --pn-accent-2:
+    type: color
+    description: Secondary accent color
+    example: "#3ddbd9"
+
+  # Colors — Border & Shadow
+  --pn-border:
+    type: color
+    description: Default border color
+    example: "rgba(255,255,255,0.08)"
+  --pn-shadow:
+    type: shadow
+    description: Default box shadow
+    example: "0 4px 24px rgba(0,0,0,0.3)"
+
+  # Typography
+  --pn-font-heading:
+    type: font-family
+    description: Heading font stack
+    example: "'Chakra Petch', sans-serif"
+  --pn-font-body:
+    type: font-family
+    description: Body text font stack
+    example: "'Manrope', sans-serif"
+  --pn-font-mono:
+    type: font-family
+    description: Monospace font stack
+    example: "'JetBrains Mono', monospace"
+
+  # Spacing
+  --pn-radius:
+    type: length
+    description: Default border radius
+    example: "18px"
+  --pn-space-sm:
+    type: length
+    description: Small spacing
+    example: "0.5rem"
+  --pn-space-md:
+    type: length
+    description: Medium spacing
+    example: "1rem"
+  --pn-space-lg:
+    type: length
+    description: Large spacing
+    example: "2rem"
+  --pn-space-xl:
+    type: length
+    description: Extra large spacing
+    example: "4rem"
+
+optional_properties:
+  --pn-accent-3:
+    type: color
+    description: Tertiary accent color
+  --pn-bg-hover:
+    type: color
+    description: Hover state background
+  --pn-gradient:
+    type: gradient
+    description: Accent gradient
+  --pn-glow:
+    type: shadow
+    description: Glow effect for interactive elements

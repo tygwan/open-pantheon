@@ -1,0 +1,36 @@
+# heading-sans — Modern heading + clean body
+# Best for: dashboards, product pages, automation tools
+
+name: heading-sans
+description: Chakra Petch headings + Manrope body + JetBrains Mono code
+
+fonts:
+  heading:
+    family: "'Chakra Petch', sans-serif"
+    weights: [500, 600, 700]
+    source: google
+  body:
+    family: "'Manrope', sans-serif"
+    weights: [400, 500, 600]
+    source: google
+  mono:
+    family: "'JetBrains Mono', monospace"
+    weights: [400, 500]
+    source: google
+
+scale:
+  h1: "clamp(2.5rem, 5vw, 4rem)"
+  h2: "clamp(1.75rem, 3vw, 2.5rem)"
+  h3: "clamp(1.25rem, 2vw, 1.75rem)"
+  body: "1rem"
+  small: "0.875rem"
+  caption: "0.75rem"
+
+line_height:
+  heading: 1.2
+  body: 1.6
+
+letter_spacing:
+  heading: "-0.02em"
+  body: "0"
+  mono: "0"

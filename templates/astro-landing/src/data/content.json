@@ -1,0 +1,19 @@
+{
+  "_placeholder": true,
+  "_note": "This file is replaced by page-writer with actual project content",
+  "meta": {
+    "title": "Project Name",
+    "tagline": "Project tagline goes here",
+    "description": "Extended project description.",
+    "github": "https://github.com/user/repo",
+    "domain": "plugin-tool"
+  },
+  "hero": {
+    "headline": "Project Headline",
+    "description": "A brief description of what this project does and why it matters.",
+    "badges": ["TypeScript", "Framework", "Status"]
+  },
+  "sections": ["problem-solution", "features", "tech-stack", "metrics"],
+  "features": [],
+  "metrics": []
+}

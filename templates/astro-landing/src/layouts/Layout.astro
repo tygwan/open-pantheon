@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = '' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header class="header">
+			<nav>
+				<!-- page-writer populates with project name and navigation -->
+			</nav>
+		</header>
+
+		<main>
+			<slot />
+		</main>
+
+		<footer class="footer">
+			<p>Built with <a href="https://github.com/tygwan/foliocraft">foliocraft</a></p>
+		</footer>
+	</body>
+</html>
+
+<style>
+	.header {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		background: var(--pn-bg-primary);
+		border-bottom: 1px solid var(--pn-border);
+		padding: var(--pn-space-md) var(--pn-space-lg);
+	}
+
+	.footer {
+		text-align: center;
+		padding: var(--pn-space-lg);
+		color: var(--pn-text-muted);
+		font-size: 0.875rem;
+		border-top: 1px solid var(--pn-border);
+	}
+</style>

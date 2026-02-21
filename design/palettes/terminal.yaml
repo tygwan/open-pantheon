@@ -1,0 +1,41 @@
+# terminal — Terminal/CLI aesthetic
+# Reference: frontend-template (JetBrains Mono, dark terminal, coral accent)
+# Target: CLI tools, devtools, terminal-based projects
+
+name: terminal
+description: Terminal-inspired dark theme with monospace aesthetic
+
+bg:
+  primary: "#0d0d0d"
+  secondary: "#1a1a1a"
+  card: "#141414"
+  hover: "#1f1f1f"
+
+text:
+  primary: "#e0e0e0"
+  secondary: "#a0a0a0"
+  muted: "#666666"
+  dim: "#444444"
+
+accent:
+  primary: "#e07a5f"    # Coral (terminal warm)
+  secondary: "#4ecdc4"  # Teal
+  tertiary: "#f7dc6f"   # Yellow
+
+# Terminal-specific semantic colors
+terminal:
+  green: "#4ecdc4"
+  yellow: "#f7dc6f"
+  red: "#e07a5f"
+  blue: "#74b9ff"
+  purple: "#a29bfe"
+  prompt: "#4ecdc4"
+  cursor: "#e07a5f"
+
+border: "rgba(255, 255, 255, 0.06)"
+shadow: "rgba(0, 0, 0, 0.5)"
+
+# Glow effect for interactive elements
+glow:
+  accent: "0 0 20px rgba(224, 122, 95, 0.3)"
+  terminal: "0 0 20px rgba(78, 205, 196, 0.2)"

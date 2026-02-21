@@ -1,0 +1,38 @@
+# dashboard — Full-bleed interactive layout
+# Best for: n8n, ai-master-class, workflow visualization
+
+name: dashboard
+description: Full-bleed dark layout with card grids and interactive elements
+
+structure:
+  max_width: "1400px"
+  padding: "2rem"
+  gap: "2rem"
+
+hero:
+  style: full-bleed
+  height: "min(80vh, 600px)"
+  alignment: center
+  has_animation: true
+
+sections:
+  layout: card-grid
+  columns: "repeat(auto-fit, minmax(300px, 1fr))"
+  card_style: elevated  # with shadow and hover effect
+
+components:
+  - hero
+  - metric-cards       # KPI/stat cards row
+  - feature-grid       # 2-3 column card grid
+  - architecture       # diagram section
+  - tech-stack         # icon grid or table
+  - timeline           # horizontal or vertical
+  - cta                # call to action
+
+radius: "18px"
+
+animations:
+  page_transition: true
+  scroll_reveal: true
+  hover_lift: true
+  card_hover: "translateY(-4px)"

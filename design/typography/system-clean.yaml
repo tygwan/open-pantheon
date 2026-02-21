@@ -1,0 +1,36 @@
+# system-clean — System font stack
+# Best for: minimal landing pages, research, documentation
+
+name: system-clean
+description: Inter with system font fallback for clean, fast-loading pages
+
+fonts:
+  heading:
+    family: "'Inter', system-ui, -apple-system, sans-serif"
+    weights: [500, 600, 700]
+    source: google
+  body:
+    family: "'Inter', system-ui, -apple-system, sans-serif"
+    weights: [400, 500]
+    source: google
+  mono:
+    family: "'JetBrains Mono', 'Fira Code', monospace"
+    weights: [400]
+    source: google
+
+scale:
+  h1: "clamp(2rem, 4vw, 3.5rem)"
+  h2: "clamp(1.5rem, 2.5vw, 2.25rem)"
+  h3: "clamp(1.125rem, 1.5vw, 1.5rem)"
+  body: "1rem"
+  small: "0.875rem"
+  caption: "0.75rem"
+
+line_height:
+  heading: 1.3
+  body: 1.7
+
+letter_spacing:
+  heading: "-0.01em"
+  body: "0"
+  mono: "0"

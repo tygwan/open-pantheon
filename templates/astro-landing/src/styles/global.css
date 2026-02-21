@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+/* Global styles consuming --pn-* tokens */
+@layer base {
+  html {
+    font-family: var(--pn-font-body);
+    color: var(--pn-text-primary);
+    background-color: var(--pn-bg-primary);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--pn-font-heading);
+    line-height: 1.3;
+  }
+
+  code, pre {
+    font-family: var(--pn-font-mono);
+  }
+
+  a {
+    color: var(--pn-accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

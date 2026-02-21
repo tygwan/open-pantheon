@@ -1,0 +1,349 @@
+# foliocraft State Schema v1
+# Per-project state file: workspace/{project}/.state.yaml
+# This schema defines all fields, valid values, and defaults.
+version: 1
+
+schema:
+  # === Project Identity ===
+  project:
+    type: string
+    required: true
+    description: Project name (directory name under workspace/)
+
+  repo_path:
+    type: string
+    required: true
+    description: Absolute path to the source Git repository
+
+  # === State Machine ===
+  current_state:
+    type: enum
+    required: true
+    default: init
+    values:
+      - init            # Initial state, workspace created
+      - analyzing       # Phase 1 running (3 agents)
+      - analyzed        # Phase 1 complete, SUMMARY.md ready
+      - designing       # Phase 2 running (Gemini/Claude generating design-profile.yaml)
+      - design_review   # Phase 2 complete, awaiting user approval
+      - building        # Phase 3 running (page-writer + figure-designer)
+      - validating      # Phase 3.5 running (validation-agent checking build)
+      - build_review    # Phase 3.5 passed, awaiting user preview approval
+      - deploying       # Phase 4 running (deploy in progress)
+      - done            # Pipeline complete, site deployed
+      - paused          # User-initiated pause (any active state)
+      - failed          # Unrecoverable error occurred
+      - cancelled       # User cancelled the pipeline
+
+  previous_state:
+    type: string
+    default: null
+    description: State before pause/fail, used for resume
+
+  phase:
+    type: enum
+    values: [1, 2, 3, 3.5, 4]
+    description: Current pipeline phase number
+
+  # === Timestamps ===
+  created_at:
+    type: ISO-8601
+    required: true
+    description: When this state file was created
+
+  updated_at:
+    type: ISO-8601
+    required: true
+    description: Last state transition timestamp
+
+  # === Phase 1 — Analysis Sub-tracking ===
+  analysis:
+    code_analyst:
+      type: enum
+      values: [pending, running, done, failed]
+      default: pending
+      description: code-analyst agent status
+
+    story_analyst:
+      type: enum
+      values: [pending, running, done, failed]
+      default: pending
+      description: story-analyst agent status
+
+    stack_detector:
+      type: enum
+      values: [pending, running, done, failed]
+      default: pending
+      description: stack-detector agent status
+
+    summary:
+      type: enum
+      values: [pending, done]
+      default: pending
+      description: Lead SUMMARY.md synthesis status
+
+  # === Phase 2 — Design Sub-tracking ===
+  design:
+    status:
+      type: enum
+      values: [pending, generating, review, approved]
+      default: pending
+      description: Overall design phase status
+
+    approval_status:
+      type: enum
+      values: [null, approved, revision_requested]
+      default: null
+      description: User review decision
+
+    review_feedback:
+      type: string
+      default: null
+      description: User feedback when revision_requested
+
+    cli_used:
+      type: enum
+      values: [claude, gemini]
+      default: gemini
+      description: Which CLI generated the design-profile
+
+  # === Phase 3 — Build Sub-tracking ===
+  build:
+    page_writer:
+      type: enum
+      values: [pending, running, done, failed]
+      default: pending
+      description: page-writer agent status
+
+    figure_designer:
+      type: enum
+      values: [pending, running, done, failed]
+      default: pending
+      description: figure-designer agent status
+
+    content_json:
+      type: boolean
+      default: false
+      description: Whether content.json has been generated (no PLACEHOLDERs)
+
+    tokens_css:
+      type: boolean
+      default: false
+      description: Whether tokens.css has been generated
+
+    site_created:
+      type: boolean
+      default: false
+      description: Whether site/ directory exists with build output
+
+  # === Phase 3.5 — Validation Sub-tracking ===
+  validation:
+    status:
+      type: enum
+      values: [pending, running, passed, issues_found]
+      default: pending
+      description: Validation phase status
+
+    issues:
+      type: array
+      items:
+        severity:
+          type: enum
+          values: [error, warning, info]
+        file:
+          type: string
+          description: File path relative to workspace
+        line:
+          type: number
+          default: null
+        message:
+          type: string
+      default: []
+      description: List of validation issues found
+
+    cli_used:
+      type: enum
+      values: [codex, claude]
+      default: codex
+      description: Which CLI performed validation
+
+  # === Phase 4 — Deploy Sub-tracking ===
+  deploy:
+    target:
+      type: enum
+      values: [null, github-pages, vercel, netlify]
+      default: null
+      description: Deployment target platform
+
+    status:
+      type: enum
+      values: [pending, deploying, done, failed]
+      default: pending
+      description: Deployment status
+
+    url:
+      type: string
+      default: null
+      description: Deployed site URL (set after successful deploy)
+
+  # === Quality Gate Integration ===
+  quality_gate:
+    pre_build:
+      type: enum
+      values: [pending, passed, failed]
+      default: pending
+      description: Pre-build quality check status (triggered at building → validating)
+
+    pre_deploy:
+      type: enum
+      values: [pending, passed, failed]
+      default: pending
+      description: Pre-deploy quality check status (triggered before deploying)
+
+    post_release:
+      type: enum
+      values: [pending, passed, failed]
+      default: pending
+      description: Post-release documentation check (triggered after done)
+
+  # === Feedback Loop Integration ===
+  feedback:
+    learnings_captured:
+      type: boolean
+      default: false
+      description: Whether learnings were captured after pipeline completion
+
+    adr_generated:
+      type: boolean
+      default: false
+      description: Whether an ADR was generated for architecture decisions
+
+    retro_completed:
+      type: boolean
+      default: false
+      description: Whether retrospective was completed for this pipeline run
+
+  # === Event Log (append-only) ===
+  log:
+    type: array
+    description: Append-only event log for audit trail
+    items:
+      timestamp:
+        type: ISO-8601
+        required: true
+
+      event:
+        type: enum
+        values:
+          - state_transition   # State changed
+          - cli_invocation     # External CLI (codex/gemini) called
+          - cli_fallback       # CLI failed, fell back to Claude
+          - error              # Error occurred
+          - user_input         # User provided input/feedback
+          - agent_start        # Agent began work
+          - agent_complete     # Agent finished work
+          - validation_issue   # Validation found an issue
+        required: true
+
+      agent:
+        type: string
+        description: Agent or CLI that generated this event
+
+      message:
+        type: string
+        description: Human-readable event description
+
+      details:
+        type: object
+        default: null
+        description: Optional structured data (model used, exit code, etc.)
+
+  # === Error Tracking ===
+  error:
+    phase:
+      type: number
+      default: null
+      description: Phase where error occurred
+
+    message:
+      type: string
+      default: null
+      description: Error description
+
+    recoverable:
+      type: boolean
+      default: true
+      description: Whether retry/resume is possible
+
+    retry_count:
+      type: number
+      default: 0
+      description: Number of retry attempts made (max 3)
+
+# === Transition Rules ===
+# Encoded here for reference; enforced by craft commands.
+transitions:
+  - from: init
+    to: analyzing
+    guard: repo_path is valid git repo
+
+  - from: analyzing
+    to: analyzed
+    guard: 3 analysis/*.md files + SUMMARY.md exist
+
+  - from: analyzed
+    to: designing
+    guard: SUMMARY.md exists
+
+  - from: designing
+    to: design_review
+    guard: design-profile.yaml is valid YAML
+
+  - from: design_review
+    to: building
+    guard: user approved design
+
+  - from: design_review
+    to: designing
+    guard: user requested revision
+
+  - from: building
+    to: validating
+    guard: content.json + tokens.css + site/ exist, no PLACEHOLDER
+
+  - from: validating
+    to: build_review
+    guard: validation passed (no error-level issues)
+
+  - from: validating
+    to: building
+    guard: error-level issues found, feed back to page-writer
+
+  - from: build_review
+    to: deploying
+    guard: user approved preview
+
+  - from: deploying
+    to: done
+    guard: deploy.yaml with url exists
+
+  # Special transitions (from any active state)
+  - from: any_active
+    to: paused
+    guard: user interrupt (/craft-state pause)
+
+  - from: paused
+    to: previous_state
+    guard: /craft-state resume
+
+  - from: any_active
+    to: failed
+    guard: unrecoverable error (retry_count >= 3)
+
+  - from: failed
+    to: previous_state
+    guard: /craft-state resume --retry (resets retry_count)
+
+  - from: any_active
+    to: cancelled
+    guard: user cancellation (terminal, no resume)

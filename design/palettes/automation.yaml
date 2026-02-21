@@ -1,0 +1,34 @@
+# automation — Dark theme with neon accents
+# Reference: n8n site (dark dashboard, pink/cyan/gold accents)
+# Target: n8n, workflow/automation projects
+
+name: automation
+description: Dark background with vibrant neon accent colors for automation/workflow tools
+
+bg:
+  primary: "#0d1117"
+  secondary: "#161b22"
+  card: "#1c2130"
+  hover: "#252d3a"
+
+text:
+  primary: "#e6edf3"
+  secondary: "#8b949e"
+  muted: "#484f58"
+  dim: "#30363d"
+
+accent:
+  primary: "#ea4b71"    # Pink (n8n brand)
+  secondary: "#3ddbd9"  # Cyan
+  tertiary: "#f7b731"   # Gold
+
+border: "rgba(255, 255, 255, 0.08)"
+shadow: "rgba(0, 0, 0, 0.3)"
+
+# Special: node-type colors (for workflow visualization)
+node:
+  trigger: "#f7b731"
+  action: "#ea4b71"
+  ai: "#3ddbd9"
+  code: "#7c5cff"
+  transform: "#ff8a50"

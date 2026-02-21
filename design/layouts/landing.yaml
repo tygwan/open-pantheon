@@ -1,0 +1,38 @@
+# landing — Center-aligned content landing page
+# Best for: DXTnavis, bim-ontology, product showcases
+
+name: landing
+description: Center-aligned layout with hero, feature grid, and content sections
+
+structure:
+  max_width: "1100px"
+  padding: "2rem"
+  gap: "4rem"
+
+hero:
+  style: centered
+  height: auto
+  alignment: center
+  has_animation: false  # clean, static hero
+
+sections:
+  layout: stacked
+  alignment: center
+  text_max_width: "680px"
+
+components:
+  - hero
+  - problem-solution    # problem → solution narrative
+  - features            # feature grid (2-3 columns)
+  - architecture        # optional diagram
+  - tech-stack          # badge/pill list
+  - metrics             # stats row
+  - cta
+
+radius: "12px"
+
+animations:
+  page_transition: false
+  scroll_reveal: true
+  hover_lift: false
+  card_hover: "none"

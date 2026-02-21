@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+.output/
+
+# Framework caches
+.astro/
+.svelte-kit/
+.next/
+.nuxt/
+
+# Generated sites (rebuilt per project)
+workspace/*/site/
+
+# Environment
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo

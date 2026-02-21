@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import content from '../data/content.json';
+---
+
+<Layout title={content.meta.title} description={content.meta.tagline}>
+	<section class="hero">
+		<h1>{content.hero.headline}</h1>
+		<p>{content.hero.description}</p>
+		{content.hero.badges && (
+			<div class="badges">
+				{content.hero.badges.map((badge: string) => (
+					<span class="badge">{badge}</span>
+				))}
+			</div>
+		)}
+	</section>
+
+	<!-- page-writer adds section components here based on content.sections -->
+</Layout>
+
+<style>
+	.hero {
+		text-align: center;
+		padding: var(--pn-space-xl) var(--pn-space-lg);
+		max-width: 680px;
+		margin: 0 auto;
+	}
+
+	.hero h1 {
+		font-size: clamp(2rem, 4vw, 3.5rem);
+		letter-spacing: -0.01em;
+		margin-bottom: var(--pn-space-md);
+	}
+
+	.hero p {
+		color: var(--pn-text-secondary);
+		font-size: 1.125rem;
+		margin-bottom: var(--pn-space-lg);
+	}
+
+	.badges {
+		display: flex;
+		gap: var(--pn-space-sm);
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.badge {
+		background: var(--pn-bg-secondary);
+		border: 1px solid var(--pn-border);
+		border-radius: var(--pn-radius);
+		padding: 0.25rem 0.75rem;
+		font-size: 0.875rem;
+		color: var(--pn-text-secondary);
+	}
+</style>
