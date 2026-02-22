@@ -1,0 +1,112 @@
+# resumely — State File
+# Schema: workspace/.state-schema.yaml
+
+project: resumely
+repo_path: /home/coffin/dev/resumely
+
+current_state: analyzed
+previous_state: analyzing
+phase: 1
+
+created_at: "2026-02-22T20:30:00+09:00"
+updated_at: "2026-02-22T20:50:00+09:00"
+
+analysis:
+  code_analyst: done
+  story_analyst: done
+  stack_detector: done
+  summary: done
+  experience_interviewer: done
+
+design:
+  status: pending
+  approval_status: null
+  review_feedback: null
+  cli_used: gemini
+
+build:
+  page_writer: pending
+  figure_designer: pending
+  content_json: false
+  tokens_css: false
+  site_created: false
+
+validation:
+  status: pending
+  issues: []
+  cli_used: codex
+
+deploy:
+  target: null
+  status: pending
+  url: null
+
+quality_gate:
+  pre_build: pending
+  pre_deploy: pending
+  post_release: pending
+
+feedback:
+  learnings_captured: false
+  adr_generated: false
+  retro_completed: false
+
+error:
+  phase: null
+  message: null
+  recoverable: true
+  retry_count: 0
+
+log:
+  - timestamp: "2026-02-22T20:30:00+09:00"
+    event: state_transition
+    agent: lead
+    message: "init → analyzing (Phase 1 시작)"
+  - timestamp: "2026-02-22T20:30:00+09:00"
+    event: agent_start
+    agent: code-analyst
+    message: "code-analyst 시작"
+  - timestamp: "2026-02-22T20:30:00+09:00"
+    event: agent_start
+    agent: story-analyst
+    message: "story-analyst 시작"
+  - timestamp: "2026-02-22T20:30:00+09:00"
+    event: agent_start
+    agent: stack-detector
+    message: "stack-detector 시작"
+  - timestamp: "2026-02-22T20:35:00+09:00"
+    event: agent_complete
+    agent: stack-detector
+    message: "stack-profile.md 생성 완료 — Next.js 16 + Supabase + Vercel AI SDK, 도메인: saas/ai-ml"
+  - timestamp: "2026-02-22T20:38:00+09:00"
+    event: agent_complete
+    agent: story-analyst
+    message: "narrative.md 생성 완료 — 6 milestones, 12 impact metrics, 4 technical challenges"
+  - timestamp: "2026-02-22T20:42:00+09:00"
+    event: agent_complete
+    agent: code-analyst
+    message: "architecture.md 생성 완료 — Serverless Layered Monolith, 5 design decisions, 22개 파일 분석"
+  - timestamp: "2026-02-22T20:43:00+09:00"
+    event: agent_complete
+    agent: lead
+    message: "SUMMARY.md 종합 완료 — 7 key insights, template: nextjs-app"
+  - timestamp: "2026-02-22T20:44:00+09:00"
+    event: interview_start
+    agent: experience-interviewer
+    message: "6블록 갭 분석: 5개 경험 후보, 주요 갭 — 원인 가설/판단 기준"
+  - timestamp: "2026-02-22T20:50:00+09:00"
+    event: interview_complete
+    agent: experience-interviewer
+    message: "2라운드 인터뷰 완료. 5개 경험 × 6블록 구조화. experience-blocks.md 생성"
+  - timestamp: "2026-02-22T20:50:00+09:00"
+    event: state_transition
+    agent: lead
+    message: "analyzing → analyzed (Phase 1 완료)"
+  - timestamp: "2026-02-23T15:00:00+09:00"
+    event: "export_complete"
+    agent: "craft-export"
+    message: "Exported for Resumely"
+    details:
+      target: "resumely"
+      format: "markdown"
+      output: "export/resumely.md"

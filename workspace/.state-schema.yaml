@@ -82,6 +82,12 @@ schema:
       default: pending
       description: Lead SUMMARY.md synthesis status
 
+    experience_interviewer:
+      type: enum
+      values: [pending, running, done, skipped, failed]
+      default: pending
+      description: experience-interviewer agent status (6-block gap analysis + user interview)
+
   # === Phase 2 — Design Sub-tracking ===
   design:
     status:
@@ -243,6 +249,9 @@ schema:
           - agent_start        # Agent began work
           - agent_complete     # Agent finished work
           - validation_issue   # Validation found an issue
+          - interview_start    # Experience interview started
+          - interview_complete # Experience interview completed
+          - interview_skipped  # No gaps found, interview skipped
         required: true
 
       agent:

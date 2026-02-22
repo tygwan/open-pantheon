@@ -1,6 +1,6 @@
 # Agent Manifest
 
-> Compact routing index for 32 agents. Load individual agent files only when matched.
+> Compact routing index for 33 agents. Load individual agent files only when matched.
 
 | Agent | Keywords (KO) | Keywords (EN) | Purpose |
 |-------|--------------|---------------|---------|
@@ -29,6 +29,7 @@
 | work-unit-manager | 세션, 그룹화, 작업 단위 | work unit, session, changes, grouping | 세션 변경사항 추적, 원자적 커밋 단위 제안 |
 | file-explorer | 파일 분석, 정리, .gitignore | file analysis, cleanup, .gitignore | 프로젝트 파일 구조 분석, 불필요 파일 식별 |
 | google-searcher | 검색, 찾아봐, 구글 | search, google, find | 웹 검색 및 기술 정보 수집 |
+| experience-interviewer | 경험 인터뷰, 6블록, 의사결정, 판단 기준 | experience, interview, 6-block, decision rule, gap analysis | Phase 1 갭 분석 후 사용자 인터뷰 |
 | code-analyst | 코드 분석, 아키텍처 | code analysis, architecture, metrics | Phase 1 코드 아키텍처 분석 (Codex) |
 | story-analyst | 내러티브, 스토리, 마일스톤 | narrative, story, milestone, impact | Phase 1 프로젝트 내러티브 추출 |
 | stack-detector | 스택 감지, 프레임워크 | stack, framework, template, detect | Phase 1 프레임워크 감지, 템플릿 추천 (Codex) |
