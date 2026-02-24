@@ -19,7 +19,9 @@
         "matcher": "Bash",
         "hooks": [
           {"type": "command", "command": ".claude/hooks/auto-doc-sync.sh Bash"},
-          {"type": "command", "command": ".claude/hooks/post-tool-use-tracker.sh Bash"}
+          {"type": "command", "command": ".claude/hooks/post-tool-use-tracker.sh Bash"},
+          {"type": "command", "command": ".claude/hooks/state-transition.sh Bash"},
+          {"type": "command", "command": ".claude/hooks/craft-progress.sh Bash"}
         ]
       },
       {
@@ -198,7 +200,7 @@
         "dev-docs-writer", "config-validator", "pr-creator", "commit-helper",
         "doc-validator", "work-unit-manager", "branch-manager", "refactor-assistant",
         "project-discovery", "analytics-reporter", "github-manager",
-        "readme-helper", "agent-writer",
+        "readme-helper", "agent-writer", "codex-reviewer",
         "MANIFEST"
       ],
       "skills": [
@@ -213,7 +215,7 @@
       "hooks": [
         "phase-progress.sh", "pre-tool-use-safety.sh", "post-tool-use-tracker.sh",
         "notification-handler.sh", "auto-doc-sync.sh",
-        "state-transition.sh", "craft-progress.sh"
+        "state-transition.sh", "craft-progress.sh", "error-recovery.sh"
       ]
     },
     "auto_run_validation": true,
@@ -324,6 +326,20 @@
     "cli_distribution": {
       "codex": { "sandbox": "read-only", "default_model": "gpt-5-mini", "fallback_model": "gpt-5-codex" },
       "gemini": { "auto_accept": true, "default_model": "gemini-2.5-flash", "fallback_model": "gemini-2.5-pro" }
+    },
+    "cli_first_policy": {
+      "enabled": true,
+      "description": "CLI tools are PRIMARY, not fallback. Invoke BEFORE Claude-native analysis.",
+      "investigation_domain": {
+        "primary_cli": "codex",
+        "triggers": ["code analysis", "bug investigation", "security audit", "performance profiling", "code review", "cross-validation"],
+        "enforcement": "MUST invoke codex CLI before providing analysis results"
+      },
+      "design_domain": {
+        "primary_cli": "gemini",
+        "triggers": ["UI design", "UX flow", "visual assets", "diagram generation", "SVG creation", "design profile"],
+        "enforcement": "MUST invoke gemini CLI before providing design outputs"
+      }
     },
     "fallback_strategy": "cli_fail_retry_once_then_claude",
     "portfolio_integration": {

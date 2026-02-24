@@ -1,0 +1,33 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Shell scripts - MUST be LF (critical for bash execution on all OS)
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Source code
+*.py text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.svelte text eol=lf
+
+# Config & data
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+
+# Documentation
+*.md text eol=lf
+*.txt text eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.gif binary
+*.svg text eol=lf
+*.ico binary
+*.woff binary
+*.woff2 binary

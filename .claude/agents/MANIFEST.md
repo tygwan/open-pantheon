@@ -1,6 +1,19 @@
 # Agent Manifest
 
-> Compact routing index for 33 agents. Load individual agent files only when matched.
+> Compact routing index for 34 agents. Load individual agent files only when matched.
+>
+> **CLI-First Policy**: codex-reviewer and design-agent are PRIMARY agents for their domains.
+> When investigation/analysis or design/UX tasks are detected, these agents MUST be invoked
+> BEFORE Claude-native analysis. See `settings.json → craft.cli_first_policy`.
+
+## CLI-First Agents (Priority Routing)
+
+| Agent | Keywords (KO) | Keywords (EN) | Purpose | CLI |
+|-------|--------------|---------------|---------|-----|
+| codex-reviewer | 조사, 분석, 코드 검증, 교차 검증, AI 리뷰, 디버그, 버그 조사, 보안 검사, 성능 분석 | investigate, analyze, code review, cross review, dual review, debug, audit, security scan, performance profile, inspect code | **[PRIMARY]** Codex CLI 기반 코드 조사/분석/리뷰 — 조사/분석 작업 시 최우선 호출 | codex |
+| design-agent | 디자인, UI, UX, 시각화, 레이아웃, 목업, 와이어프레임, 다이어그램, SVG, 컴포넌트 디자인 | design, UI, UX, visual, layout, mockup, wireframe, diagram, SVG, component design, palette, typography | **[PRIMARY]** Gemini CLI 기반 디자인/시각화 — UI/UX 작업 시 최우선 호출 | gemini |
+
+## Standard Agents
 
 | Agent | Keywords (KO) | Keywords (EN) | Purpose |
 |-------|--------------|---------------|---------|
@@ -29,11 +42,15 @@
 | work-unit-manager | 세션, 그룹화, 작업 단위 | work unit, session, changes, grouping | 세션 변경사항 추적, 원자적 커밋 단위 제안 |
 | file-explorer | 파일 분석, 정리, .gitignore | file analysis, cleanup, .gitignore | 프로젝트 파일 구조 분석, 불필요 파일 식별 |
 | google-searcher | 검색, 찾아봐, 구글 | search, google, find | 웹 검색 및 기술 정보 수집 |
-| experience-interviewer | 경험 인터뷰, 6블록, 의사결정, 판단 기준 | experience, interview, 6-block, decision rule, gap analysis | Phase 1 갭 분석 후 사용자 인터뷰 |
-| code-analyst | 코드 분석, 아키텍처 | code analysis, architecture, metrics | Phase 1 코드 아키텍처 분석 (Codex) |
-| story-analyst | 내러티브, 스토리, 마일스톤 | narrative, story, milestone, impact | Phase 1 프로젝트 내러티브 추출 |
-| stack-detector | 스택 감지, 프레임워크 | stack, framework, template, detect | Phase 1 프레임워크 감지, 템플릿 추천 (Codex) |
-| design-agent | 디자인, 팔레트, UI, 레이아웃 | design, palette, UI, visual, layout | Phase 2 디자인 프로파일 생성 (Gemini) |
-| page-writer | 사이트, 빌드, 페이지, 콘텐츠 | site, build, page, content, tokens | Phase 3 사이트 빌드, content.json 생성 |
-| figure-designer | 다이어그램, SVG, 시각화 | diagram, figure, mermaid, SVG | Phase 3 Mermaid/SVG 시각화 (Gemini) |
-| validation-agent | 검증, 스키마, 품질, 빌드 검증 | validate, schema, quality, build check | Phase 3.5 빌드 검증 (Codex) |
+
+## Craft Pipeline Agents
+
+| Agent | Keywords (KO) | Keywords (EN) | Purpose | CLI |
+|-------|--------------|---------------|---------|-----|
+| code-analyst | 코드 분석, 스택 감지, 의존성 분석 | code analysis, stack detection, dependency analysis | Phase 1: 프로젝트 코드베이스 분석 | codex |
+| stack-detector | 스택 감지, 기술 스택, 프레임워크 감지 | stack detect, tech stack, framework detection | Phase 1: 기술 스택 자동 감지 | codex |
+| experience-interviewer | 인터뷰, 경험, 프로필 수집, 6블록 | interview, experience, profile, 6-block, gap analysis | Phase 1+: 사용자 경험/프로필 인터뷰 | - |
+| story-analyst | 스토리, 내러티브, 콘텐츠 분석 | story, narrative, content analysis, milestone | Phase 1: 프로젝트 내러티브 구조화 | - |
+| figure-designer | 그림, 도표, 아키텍처 다이어그램, SVG | figure, chart, architecture diagram, mermaid, SVG | Phase 3: Mermaid/SVG 시각 자산 생성 | gemini |
+| page-writer | 페이지, 사이트, 빌드, 콘텐츠 | page, site, build, content, tokens | Phase 3: 페이지 코드 생성 및 빌드 | gemini |
+| validation-agent | 품질 검증, 빌드 검증, 접근성 | quality check, build validation, accessibility | Phase 3.5: 빌드 결과물 품질 검증 | codex |
