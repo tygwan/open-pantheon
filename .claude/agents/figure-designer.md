@@ -98,8 +98,8 @@ timeline
 
 #### 모델 선택
 
-- Mermaid 다이어그램: `gemini-2.5-flash` (기본) → `gemini-2.5-pro` (노드 10+)
-- SVG 생성: `gemini-2.5-pro` (항상, 시각 품질 중요)
+- Mermaid 다이어그램: `gemini-3.1-pro-preview`
+- SVG 생성: `gemini-3.1-pro-preview`
 
 #### Mermaid 다이어그램 실행 패턴
 
@@ -117,7 +117,7 @@ Output only valid Mermaid syntax, no code fences." -y -m MODEL -o text
 gemini -p "Create an SVG visualization for {description}.
 Colors: --pn-accent ({accent}), --pn-bg-primary ({bg}), --pn-text-primary ({text}).
 Style: geometric, modern, minimal. Max dimensions: 800x600.
-Output only valid SVG markup." -y -m gemini-2.5-pro -o text
+Output only valid SVG markup." -y -m gemini-3.1-pro-preview -o text
 ```
 
 #### Fallback

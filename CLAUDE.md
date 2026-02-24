@@ -32,10 +32,10 @@ design profiles, mockups, wireframes, or any visual/design work:
 ### CLI Quick Reference
 ```bash
 # Codex: investigation/analysis (sandbox mode)
-codex --model gpt-5-mini --sandbox read-only "TASK"
+codex --model gpt-5.3-codex --sandbox read-only "TASK"
 
 # Gemini: design/visualization (auto-approve for pipeline)
-gemini -p "PROMPT" -y -m gemini-2.5-flash -o text
+gemini -p "PROMPT" -y -m gemini-3.1-pro-preview -o text
 ```
 
 ---
@@ -201,10 +201,10 @@ Agent 라우팅: `.claude/agents/MANIFEST.md` (키워드 기반 자동 매칭)
 
 | Phase | Task | Primary CLI | Fallback |
 |-------|------|-------------|----------|
-| 1 | 코드 분석, 스택 감지 | Codex (`gpt-5-mini` → `gpt-5-codex`) | Claude |
-| 2 | 디자인 프로파일 생성 | Gemini (`gemini-2.5-flash` → `gemini-2.5-pro`) | Claude |
-| 3 | 다이어그램/SVG | Gemini (`gemini-2.5-flash` → `gemini-2.5-pro`) | Claude |
-| 3.5 | 빌드 검증, 코드 리뷰 | Codex (`gpt-5-mini` / `gpt-5-codex`) | Claude |
+| 1 | 코드 분석, 스택 감지 | Codex (`gpt-5.3-codex`, reasoning: medium→high) | Claude |
+| 2 | 디자인 프로파일 생성 | Gemini (`gemini-3.1-pro-preview`) | Claude |
+| 3 | 다이어그램/SVG | Gemini (`gemini-3.1-pro-preview`) | Claude |
+| 3.5 | 빌드 검증, 코드 리뷰 | Codex (`gpt-5.3-codex`, reasoning: low/xhigh) | Claude |
 
 **Fallback**: CLI 실패 → 1회 재시도 → Claude 내장 도구 대체. `.state.yaml` log에 기록.
 

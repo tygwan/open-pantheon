@@ -17,23 +17,18 @@ foliocraft 파이프라인에서 디자인, UI/UX, 시각화 작업에 Gemini CL
 
 ## Model Selection
 
-| Task | Default Model | Upgrade Condition | Upgrade Model |
-|------|---------------|-------------------|---------------|
-| Phase 2 디자인 생성 | `gemini-2.5-flash` | 섹션 5+개 또는 커스텀 팔레트 필요 시 | `gemini-2.5-pro` |
-| Phase 3 Mermaid 다이어그램 | `gemini-2.5-flash` | 복잡한 아키텍처 (노드 10+) | `gemini-2.5-pro` |
-| Phase 3 SVG 생성 | `gemini-2.5-pro` | — (시각 품질 중요, 항상) | — |
+| Task | Model | Notes |
+|------|-------|-------|
+| Phase 2 디자인 생성 | `gemini-3.1-pro-preview` | 모든 디자인 작업에 사용 |
+| Phase 3 Mermaid 다이어그램 | `gemini-3.1-pro-preview` | 모든 다이어그램 생성에 사용 |
+| Phase 3 SVG 생성 | `gemini-3.1-pro-preview` | 모든 SVG 생성에 사용 |
 
 ### Selection Logic
 
 ```
-1. 기본 모델: gemini-2.5-flash (fast, free tier)
-2. 업그레이드 조건 확인:
-   - 섹션 5+개 → gemini-2.5-pro
-   - 커스텀 팔레트 필요 → gemini-2.5-pro
-   - 복잡한 아키텍처 (노드 10+) → gemini-2.5-pro
-   - SVG 생성 → 항상 gemini-2.5-pro
-3. 수동 오버라이드: -m 플래그로 사용자 지정 가능
-4. .state.yaml log에 사용 모델 기록
+1. 기본 모델: gemini-3.1-pro-preview (모든 작업에 단일 모델 사용)
+2. 수동 오버라이드: -m 플래그로 사용자 지정 가능
+3. .state.yaml log에 사용 모델 기록
 ```
 
 ## Invocation Patterns
@@ -55,7 +50,7 @@ gemini -p "PROMPT" -y -m MODEL -o text
 ### SVG Generation
 
 ```bash
-gemini -p "PROMPT" -y -m gemini-2.5-pro -o text
+gemini -p "PROMPT" -y -m gemini-3.1-pro-preview -o text
 ```
 
 ## Prompt Templates

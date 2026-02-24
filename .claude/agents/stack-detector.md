@@ -107,8 +107,8 @@ Phase 1 분석 에이전트. 프로젝트 파일을 스캔하여 프레임워크
 - 다중 언어 프로젝트 (3개 이상)
 
 #### 모델 선택
-- 기본: `gpt-5-mini`
-- 업그레이드: `gpt-5-codex` (monorepo 또는 언어 3+개)
+- 모델: `gpt-5.3-codex` (모든 스택 감지 작업)
+- reasoning: `medium` (기본) → `high` (monorepo 또는 언어 3+개)
 
 #### 실행 패턴
 ```bash

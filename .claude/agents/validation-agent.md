@@ -48,7 +48,7 @@ Check:
 - Field types match schema
 - No extra fields not in schema
 - Array items have correct structure
-Report each issue as JSON: {severity, file, line, message}" | codex exec -m gpt-5-mini --sandbox read-only -C workspace/{project}/
+Report each issue as JSON: {severity, file, line, message}" | codex exec -m gpt-5.3-codex --sandbox read-only -C workspace/{project}/
 ```
 
 ### 2. Token Integrity — tokens.css 검증
@@ -62,7 +62,7 @@ Verify:
 - All required properties are defined in :root
 - Values are valid CSS values
 - No syntax errors
-Report issues as JSON: {severity, file, line, message}" | codex exec -m gpt-5-mini --sandbox read-only -C workspace/{project}/
+Report issues as JSON: {severity, file, line, message}" | codex exec -m gpt-5.3-codex --sandbox read-only -C workspace/{project}/
 ```
 
 ### 3. Content Quality — 콘텐츠 품질 검증 (via Codex)
@@ -75,7 +75,7 @@ echo "Review content.json and tokens.css for quality:
 2. Check that all text fields have meaningful content (not empty, not generic)
 3. Verify hero section has headline and description
 4. Check all sections have titles and content
-Report issues as JSON: {severity, file, line, message}" | codex exec -m gpt-5-mini --sandbox read-only -C workspace/{project}/
+Report issues as JSON: {severity, file, line, message}" | codex exec -m gpt-5.3-codex --sandbox read-only -C workspace/{project}/
 ```
 
 ### 4. Build Integrity — 빌드 설정 검증
@@ -88,7 +88,7 @@ echo "Check build integrity of the site:
 2. Required dependencies are listed
 3. Output directory structure is correct
 4. No broken imports or missing files referenced in HTML/JS
-Report issues as JSON: {severity, file, line, message}" | codex exec -m gpt-5-mini --sandbox read-only -C workspace/{project}/site/
+Report issues as JSON: {severity, file, line, message}" | codex exec -m gpt-5.3-codex --sandbox read-only -C workspace/{project}/site/
 ```
 
 ### 5. Cross-Reference Check — 교차 참조 검증 (via Codex)
@@ -101,7 +101,7 @@ echo "Cross-reference template component references with content.json keys:
 2. Check each referenced key exists in content.json
 3. Find content.json keys not referenced by any component
 4. Verify data types match expected usage
-Report issues as JSON: {severity, file, line, message}" | codex exec -m gpt-5-codex --sandbox read-only -C workspace/{project}/
+Report issues as JSON: {severity, file, line, message}" | codex exec -m gpt-5.3-codex --sandbox read-only -C workspace/{project}/
 ```
 
 ## Results Handling
@@ -179,7 +179,7 @@ log:
     message: "Schema validation via Codex"
     details:
       cli: codex
-      model: gpt-5-mini
+      model: gpt-5.3-codex
       check: schema_validation
       exit_code: 0
 

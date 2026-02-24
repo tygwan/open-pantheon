@@ -84,14 +84,14 @@ action:
 
 ## CLI Distribution
 
-| Phase | Primary CLI | Model Default | Fallback |
-|-------|-------------|---------------|----------|
-| 1 | Codex (optional) | gpt-5-mini → gpt-5-codex | Claude |
-| 2 | Gemini | gemini-2.5-flash → pro | Claude |
-| 3 | Claude | sonnet | - |
-| 3 (visuals) | Gemini | gemini-2.5-flash → pro | Claude |
-| 3.5 | Codex | gpt-5-mini / gpt-5-codex | Claude |
-| 4 | Claude | sonnet | - |
+| Phase | Primary CLI | Model Default | Reasoning | Fallback |
+|-------|-------------|---------------|-----------|----------|
+| 1 | Codex (optional) | gpt-5.3-codex | medium → high | Claude |
+| 2 | Gemini | gemini-3.1-pro-preview | - | Claude |
+| 3 | Claude | sonnet | - | - |
+| 3 (visuals) | Gemini | gemini-3.1-pro-preview | - | Claude |
+| 3.5 | Codex | gpt-5.3-codex | low / xhigh | Claude |
+| 4 | Claude | sonnet | - | - |
 
 ## Error Handling
 

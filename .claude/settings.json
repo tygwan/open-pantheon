@@ -3,52 +3,114 @@
     "PreToolUse": [
       {
         "matcher": "Bash",
-        "hooks": [{"type": "command", "command": ".claude/hooks/pre-tool-use-safety.sh Bash"}]
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/pre-tool-use-safety.sh Bash"
+          }
+        ]
       },
       {
         "matcher": "Write",
-        "hooks": [{"type": "command", "command": ".claude/hooks/pre-tool-use-safety.sh Write"}]
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/pre-tool-use-safety.sh Write"
+          }
+        ]
       },
       {
         "matcher": "Edit",
-        "hooks": [{"type": "command", "command": ".claude/hooks/pre-tool-use-safety.sh Edit"}]
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/pre-tool-use-safety.sh Edit"
+          }
+        ]
       }
     ],
     "PostToolUse": [
       {
         "matcher": "Bash",
         "hooks": [
-          {"type": "command", "command": ".claude/hooks/auto-doc-sync.sh Bash"},
-          {"type": "command", "command": ".claude/hooks/post-tool-use-tracker.sh Bash"},
-          {"type": "command", "command": ".claude/hooks/state-transition.sh Bash"},
-          {"type": "command", "command": ".claude/hooks/craft-progress.sh Bash"}
+          {
+            "type": "command",
+            "command": ".claude/hooks/auto-doc-sync.sh Bash"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/post-tool-use-tracker.sh Bash"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/state-transition.sh Bash"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/craft-progress.sh Bash"
+          }
         ]
       },
       {
         "matcher": "Write",
         "hooks": [
-          {"type": "command", "command": ".claude/hooks/auto-doc-sync.sh Write"},
-          {"type": "command", "command": ".claude/hooks/phase-progress.sh Write"},
-          {"type": "command", "command": ".claude/hooks/post-tool-use-tracker.sh Write"},
-          {"type": "command", "command": ".claude/hooks/state-transition.sh Write"},
-          {"type": "command", "command": ".claude/hooks/craft-progress.sh Write"}
+          {
+            "type": "command",
+            "command": ".claude/hooks/auto-doc-sync.sh Write"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/phase-progress.sh Write"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/post-tool-use-tracker.sh Write"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/state-transition.sh Write"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/craft-progress.sh Write"
+          }
         ]
       },
       {
         "matcher": "Edit",
         "hooks": [
-          {"type": "command", "command": ".claude/hooks/auto-doc-sync.sh Edit"},
-          {"type": "command", "command": ".claude/hooks/phase-progress.sh Edit"},
-          {"type": "command", "command": ".claude/hooks/post-tool-use-tracker.sh Edit"},
-          {"type": "command", "command": ".claude/hooks/state-transition.sh Edit"},
-          {"type": "command", "command": ".claude/hooks/craft-progress.sh Edit"}
+          {
+            "type": "command",
+            "command": ".claude/hooks/auto-doc-sync.sh Edit"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/phase-progress.sh Edit"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/post-tool-use-tracker.sh Edit"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/state-transition.sh Edit"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/craft-progress.sh Edit"
+          }
         ]
       }
     ],
     "Notification": [
       {
         "matcher": "*",
-        "hooks": [{"type": "command", "command": ".claude/hooks/notification-handler.sh"}]
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/notification-handler.sh"
+          }
+        ]
       }
     ]
   },
@@ -79,7 +141,14 @@
   "sprint": {
     "enabled": true,
     "default_duration": "2w",
-    "point_scale": [1, 2, 3, 5, 8, 13],
+    "point_scale": [
+      1,
+      2,
+      3,
+      5,
+      8,
+      13
+    ],
     "auto_velocity_track": true,
     "auto_retro_generate": true,
     "burndown_chart": "ascii",
@@ -94,7 +163,12 @@
   "quality-gate": {
     "pre-commit": {
       "enabled": true,
-      "checks": ["lint", "format", "types", "secrets"],
+      "checks": [
+        "lint",
+        "format",
+        "types",
+        "secrets"
+      ],
       "auto_fix": false
     },
     "pre-merge": {
@@ -118,7 +192,14 @@
   "feedback": {
     "auto_prompt_on_fix": true,
     "auto_prompt_on_arch_change": true,
-    "learning_categories": ["bugs", "performance", "security", "architecture", "tooling", "process"],
+    "learning_categories": [
+      "bugs",
+      "performance",
+      "security",
+      "architecture",
+      "tooling",
+      "process"
+    ],
     "adr_auto_number": true,
     "retro_template": "full",
     "review_default_count": 10
@@ -194,28 +275,71 @@
     "backup_before_sync": true,
     "core_components": {
       "agents": [
-        "file-explorer", "tech-spec-writer", "progress-tracker", "phase-tracker",
-        "doc-generator", "project-analyzer", "code-reviewer", "doc-splitter",
-        "test-helper", "git-troubleshooter", "google-searcher", "prd-writer",
-        "dev-docs-writer", "config-validator", "pr-creator", "commit-helper",
-        "doc-validator", "work-unit-manager", "branch-manager", "refactor-assistant",
-        "project-discovery", "analytics-reporter", "github-manager",
-        "readme-helper", "agent-writer", "codex-reviewer",
+        "file-explorer",
+        "tech-spec-writer",
+        "progress-tracker",
+        "phase-tracker",
+        "doc-generator",
+        "project-analyzer",
+        "code-reviewer",
+        "doc-splitter",
+        "test-helper",
+        "git-troubleshooter",
+        "google-searcher",
+        "prd-writer",
+        "dev-docs-writer",
+        "config-validator",
+        "pr-creator",
+        "commit-helper",
+        "doc-validator",
+        "work-unit-manager",
+        "branch-manager",
+        "refactor-assistant",
+        "project-discovery",
+        "analytics-reporter",
+        "github-manager",
+        "readme-helper",
+        "agent-writer",
+        "codex-reviewer",
         "MANIFEST"
       ],
       "skills": [
-        "init", "validate", "sprint", "agile-sync", "brainstorming",
-        "context-optimizer", "feedback-loop", "hook-creator", "subagent-creator",
-        "skill-creator", "prompt-enhancer", "dev-doc-system", "quality-gate",
-        "sync-fix", "repair", "readme-sync", "analytics", "gh"
+        "init",
+        "validate",
+        "sprint",
+        "agile-sync",
+        "brainstorming",
+        "context-optimizer",
+        "feedback-loop",
+        "hook-creator",
+        "subagent-creator",
+        "skill-creator",
+        "prompt-enhancer",
+        "dev-doc-system",
+        "quality-gate",
+        "sync-fix",
+        "repair",
+        "readme-sync",
+        "analytics",
+        "gh"
       ],
       "commands": [
-        "feature", "bugfix", "release", "phase", "git-workflow", "dev-doc-planner"
+        "feature",
+        "bugfix",
+        "release",
+        "phase",
+        "git-workflow",
+        "dev-doc-planner"
       ],
       "hooks": [
-        "phase-progress.sh", "pre-tool-use-safety.sh", "post-tool-use-tracker.sh",
-        "notification-handler.sh", "auto-doc-sync.sh",
-        "state-transition.sh", "craft-progress.sh", "error-recovery.sh"
+        "phase-progress.sh",
+        "pre-tool-use-safety.sh",
+        "post-tool-use-tracker.sh",
+        "notification-handler.sh",
+        "auto-doc-sync.sh",
+        "state-transition.sh",
+        "craft-progress.sh",
+        "error-recovery.sh"
       ]
     },
     "auto_run_validation": true,
@@ -251,10 +375,26 @@
   "validation": {
     "auto_check_on_start": false,
     "strict_mode": false,
-    "ignore_patterns": ["*.backup", "*.tmp"],
-    "required_agents": ["project-discovery", "progress-tracker", "phase-tracker", "dev-docs-writer"],
-    "required_hooks": ["phase-progress.sh", "pre-tool-use-safety.sh"],
-    "required_skills": ["init", "validate", "sprint", "agile-sync"]
+    "ignore_patterns": [
+      "*.backup",
+      "*.tmp"
+    ],
+    "required_agents": [
+      "project-discovery",
+      "progress-tracker",
+      "phase-tracker",
+      "dev-docs-writer"
+    ],
+    "required_hooks": [
+      "phase-progress.sh",
+      "pre-tool-use-safety.sh"
+    ],
+    "required_skills": [
+      "init",
+      "validate",
+      "sprint",
+      "agile-sync"
+    ]
   },
   "recovery": {
     "enabled": true,
@@ -262,15 +402,27 @@
     "max_retry_count": 3,
     "log_retention_days": 7,
     "graceful_degradation": true,
-    "critical_hooks": ["pre-tool-use-safety.sh"],
-    "non_critical_hooks": ["auto-doc-sync.sh", "phase-progress.sh", "post-tool-use-tracker.sh", "notification-handler.sh", "state-transition.sh", "craft-progress.sh"],
+    "critical_hooks": [
+      "pre-tool-use-safety.sh"
+    ],
+    "non_critical_hooks": [
+      "auto-doc-sync.sh",
+      "phase-progress.sh",
+      "post-tool-use-tracker.sh",
+      "notification-handler.sh",
+      "state-transition.sh",
+      "craft-progress.sh"
+    ],
     "auto_fixable": {
       "hook_permissions": true,
       "missing_directories": true,
       "log_rotation": true
     },
     "manual_required": {
-      "missing_docs": ["PROGRESS.md", "CONTEXT.md"],
+      "missing_docs": [
+        "PROGRESS.md",
+        "CONTEXT.md"
+      ],
       "invalid_json": true
     },
     "log_settings": {
@@ -324,20 +476,41 @@
     "default_template": "auto",
     "css_prefix": "--pn-",
     "cli_distribution": {
-      "codex": { "sandbox": "read-only", "default_model": "gpt-5-mini", "fallback_model": "gpt-5-codex" },
-      "gemini": { "auto_accept": true, "default_model": "gemini-2.5-flash", "fallback_model": "gemini-2.5-pro" }
+      "codex": {
+        "sandbox": "read-only",
+        "default_model": "gpt-5.3-codex",
+        "default_reasoning": "xhigh"
+      },
+      "gemini": {
+        "auto_accept": true,
+        "default_model": "gemini-3.1-pro-preview"
+      }
     },
     "cli_first_policy": {
       "enabled": true,
       "description": "CLI tools are PRIMARY, not fallback. Invoke BEFORE Claude-native analysis.",
       "investigation_domain": {
         "primary_cli": "codex",
-        "triggers": ["code analysis", "bug investigation", "security audit", "performance profiling", "code review", "cross-validation"],
+        "triggers": [
+          "code analysis",
+          "bug investigation",
+          "security audit",
+          "performance profiling",
+          "code review",
+          "cross-validation"
+        ],
         "enforcement": "MUST invoke codex CLI before providing analysis results"
       },
       "design_domain": {
         "primary_cli": "gemini",
-        "triggers": ["UI design", "UX flow", "visual assets", "diagram generation", "SVG creation", "design profile"],
+        "triggers": [
+          "UI design",
+          "UX flow",
+          "visual assets",
+          "diagram generation",
+          "SVG creation",
+          "design profile"
+        ],
         "enforcement": "MUST invoke gemini CLI before providing design outputs"
       }
     },

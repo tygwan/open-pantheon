@@ -40,7 +40,7 @@ design_review → building (승인 시 Phase 3으로)
 ## CLI Delegation
 
 - Gemini CLI가 primary (design-agent 사용, fc-gemini skill 참조)
-- 기본 모델: `gemini-2.5-flash`, 섹션 5+개 또는 커스텀 팔레트 시 `gemini-2.5-pro`
+- 모델: `gemini-3.1-pro-preview` (모든 디자인 작업)
 - Gemini 실패 시 Claude fallback, `.state.yaml` log에 `cli_fallback` 기록
 
 ## Process

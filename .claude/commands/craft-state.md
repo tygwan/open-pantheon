@@ -91,7 +91,7 @@
 [2026-02-21 14:00:00] state_transition  init → analyzing          (lead)
 [2026-02-21 14:00:05] agent_start       code-analyst              (code-analyst)
 [2026-02-21 14:00:05] agent_start       story-analyst             (story-analyst)
-[2026-02-21 14:00:06] cli_invocation    codex exec (gpt-5-mini)   (stack-detector)
+[2026-02-21 14:00:06] cli_invocation    codex exec (gpt-5.3-codex)   (stack-detector)
 [2026-02-21 14:02:30] agent_complete    code-analyst              (code-analyst)
 [2026-02-21 14:03:00] error             timeout on stack-detector (stack-detector)
 [2026-02-21 14:03:01] cli_fallback      codex → claude            (stack-detector)
