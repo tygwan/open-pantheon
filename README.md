@@ -1,260 +1,55 @@
 <div align="center">
+  <img src=".github/thumbnail.png" alt="Open-Pantheon" width="600" />
 
-<br />
+  <h1>Open-Pantheon</h1>
+  <p><strong>Multi-CLI AI Orchestration Framework — 97% Token Savings</strong></p>
 
-<pre>
- ██████  ██████  ██████  ██    ██
-██    ██ ██   ██ ██      ███   ██
-██    ██ ██████  █████   ████  ██
-██    ██ ██      ██      ██ ██ ██
- ██████  ██      ██████  ██  ████
-
-██████   ████   ██    ██ ████████ ██   ██ ██████  ██████  ██    ██
-██   ██ ██  ██  ███   ██    ██    ██   ██ ██      ██  ██  ███   ██
-██████  ██████  ████  ██    ██    ███████ █████   ██  ██  ████  ██
-██      ██  ██  ██ ██ ██    ██    ██   ██ ██      ██  ██  ██ ██ ██
-██      ██  ██  ██  ████    ██    ██   ██ ██████  ██████  ██  ████
-</pre>
-
-**Where AI gods forge your projects.**
-
-CLI-First Multi-AI Orchestration — 포트폴리오 생성 + 개발 라이프사이클 자동화 에이전트 생태계.
-
-<br />
-
-<a href="https://github.com/tygwan/open-pantheon/actions"><img src="https://img.shields.io/github/actions/workflow/status/tygwan/open-pantheon/ci.yml?branch=main&style=for-the-badge&logo=github&label=CI" alt="CI"></a>&nbsp;
-<a href="https://github.com/tygwan/open-pantheon/releases"><img src="https://img.shields.io/github/v/release/tygwan/open-pantheon?include_prereleases&style=for-the-badge&logo=semantic-release&color=ea4b71" alt="Release"></a>&nbsp;
-<a href="https://github.com/tygwan/open-pantheon/blob/main/LICENSE"><img src="https://img.shields.io/github/license/tygwan/open-pantheon?style=for-the-badge&color=3ddbd9" alt="License"></a>&nbsp;
-<a href="https://claude.ai"><img src="https://img.shields.io/badge/CLI--First-Claude_+_Codex_+_Gemini-7c5cff?style=for-the-badge&logo=anthropic" alt="CLI-First Multi-AI"></a>
-
+  <p>
+    <img src="https://img.shields.io/badge/status-active-3b82f6" alt="Status" />
+    <img src="https://img.shields.io/badge/Claude_Code-022448" alt="Claude Code" />
+    <img src="https://img.shields.io/badge/Codex_CLI-022448" alt="Codex CLI" />
+    <img src="https://img.shields.io/badge/Gemini_CLI-022448" alt="Gemini CLI" />
+  </p>
 </div>
 
-<br />
-
 ---
 
-## What is open-pantheon?
+## Overview
 
-open-pantheon은 **세 가지 핵심 기능**을 하나로 통합합니다:
+Open-Pantheon is a unified AI orchestration framework that combines Git repository analysis, portfolio generation, and full dev lifecycle automation into a single agent ecosystem. Claude Code orchestrates the pipeline while Codex CLI handles code analysis/validation and Gemini CLI generates design assets — achieving 97% token savings through intelligent agent routing and incremental context loading.
 
-1. **CLI-First Multi-AI Orchestration** — Codex CLI와 Gemini CLI가 **PRIMARY** 도구로 먼저 실행되고, Claude가 종합/통합
-2. **Portfolio Generation** — Git 레포를 분석하여 프로젝트별 고유 디자인의 포트폴리오 사이트를 자동 생성
-3. **Dev Lifecycle Management** — Phase/Sprint 관리, Quality Gates, Feedback Loops, CI/CD 자동화
+## Key Features
 
-**Claude Code**가 오케스트레이션하고, **Codex CLI**(`gpt-5.3-codex`)가 코드 분석/검증을, **Gemini CLI**(`gemini-3.1-pro-preview`)가 디자인/시각화를 **먼저** 수행합니다.
+- **Automated Portfolio Generation** — Analyze any Git repo and generate a unique, design-profiled portfolio site in one command
+- **13-State Pipeline** — Full state machine with quality gates and feedback loops across Analyze, Design, Build, Validate, and Deploy phases
+- **CLI-First Multi-AI Architecture** — Claude Code (orchestration), Codex CLI (review/validation, `--sandbox ro`), Gemini CLI (design/visual, `-y`)
+- **27 Specialized Agents** — 2 CLI-First + 7 Craft Pipeline + 18 Dev Lifecycle agents with keyword-matched auto-routing
+- **Dev Lifecycle Management** — Feature development, sprint tracking, quality gates (pre-commit through post-release), and CI/CD automation
+- **14 Slash Commands** — `/craft`, `/feature`, `/bugfix`, `/release`, `/phase`, and more for end-to-end workflow control
 
-```
-$ claude /craft /path/to/your-repo
+## Tech Stack
 
-  ✔ Phase 1   — Analyzing repo with 3 agents...      (Codex assists)
-  ✔ Phase 2   — Generating design profile...          (Gemini generates)
-  ✔ Phase 3   — Building site...                      (Claude writes)
-  ✔ Phase 3.5 — Validating build...                   (Codex validates)
-  ✔ Phase 4   — Deployed to GitHub Pages
+| Category | Technologies |
+|----------|-------------|
+| Orchestration | Claude Code (Lead) |
+| AI Providers | Codex CLI (Review, Search, Validate), Gemini CLI (Design, Visual, SVG) |
+| Templates | SvelteKit 5 Dashboard, Astro 5 Landing |
+| Pipeline | 13-state machine, 6 quality gates, 8 automation hooks |
+| Deployment | GitHub Pages, Vercel, Netlify |
 
-  → https://yourname.github.io/your-repo/
-```
+## At a Glance
 
----
+| Metric | Count |
+|:--|------:|
+| AI Agents | **27** |
+| CLI Providers | **3** |
+| Skills | **29** |
+| Slash Commands | **14** |
+| Hooks | **8** |
+| Quality Gates | **6** |
+| Design Palettes | **4** |
 
-## Pipeline
-
-```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                          open-pantheon pipeline                              │
-│                                                                              │
-│  Phase 1: ANALYZE       Phase 2: DESIGN      Phase 3: BUILD                 │
-│  ┌──────────────┐       ┌──────────────┐     ┌──────────────┐               │
-│  │ code-analyst ─┤       │              │     │  page-writer │               │
-│  │ story-analyst ┼──→ SUMMARY.md ──→ design  ──→ tokens.css │               │
-│  │ stack-detector┤   (Lead 종합)    profile  │  content.json│               │
-│  └──────────────┘       │    .yaml     │     │  site/       │               │
-│   Codex assists         │  (사람 검토)  │     │              │               │
-│                         │  Gemini gen  │     │figure-designer│              │
-│                         └──────────────┘     │  → diagrams/  │              │
-│                                              └───────┬──────┘               │
-│                                                      ↓                      │
-│                                            Phase 3.5: VALIDATE              │
-│                                            ┌──────────────────┐             │
-│                                            │ validation-agent  │             │
-│                                            │ Schema · Quality  │             │
-│                                            │   (Codex CLI)     │             │
-│                                            └───────┬──────────┘             │
-│                                                    ↓                        │
-│                                            Phase 4: DEPLOY                  │
-│                                            GitHub Pages / Vercel            │
-└──────────────────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## State Machine
-
-모든 프로젝트는 **13-state 상태머신**으로 추적됩니다. Quality Gate와 Feedback Loop가 통합되어 있습니다.
-
-```
-init → analyzing → analyzed → designing → design_review
-                                              ↓
-                    build_review ← validating ← building
-                        ↓                     ↑ quality-gate
-                    deploying → done          │ pre-build
-                                ↑
-                         quality-gate
-                          pre-deploy
-
-                    + paused, failed, cancelled
-```
-
-Per-project state: `workspace/{project}/.state.yaml`
-Schema: `workspace/.state-schema.yaml`
-
----
-
-## CLI-First Policy
-
-> **Codex CLI**와 **Gemini CLI**는 선택적 보조 도구가 아니라 **PRIMARY 도구**입니다.
-> 해당 도메인의 작업 시 CLI가 **먼저** 실행되고, Claude는 결과를 종합합니다.
-
-| Domain | PRIMARY CLI | Model | Triggers |
-|:-------|:-----------|:------|:---------|
-| **Investigation / Analysis** | Codex CLI | `gpt-5.3-codex` + reasoning_effort | 코드 분석, 버그 조사, 보안 감사, 성능 프로파일링, 코드 리뷰, 교차 검증 |
-| **Design / Visualization** | Gemini CLI | `gemini-3.1-pro-preview` | UI 디자인, UX 플로우, 시각 자산, 다이어그램, SVG, 목업, 와이어프레임 |
-
-```bash
-# Codex: investigation/analysis (sandbox mode)
-codex --model gpt-5.3-codex --approval-mode suggest "TASK"
-
-# Gemini: design/visualization (auto-approve for pipeline)
-gemini -p "PROMPT" -y -m gemini-3.1-pro-preview -o text
-```
-
-**Fallback**: CLI 실패 → 1회 재시도 → Claude 내장 도구 대체. `.state.yaml` log에 기록.
-
----
-
-## Multi-CLI Architecture
-
-```
-               ┌──────────────────────────────┐
-               │    Claude Code (Lead)         │
-               │  Orchestration + Synthesis    │
-               └──────┬──────────────┬─────────┘
-                      │              │
-        ┌─────────────┘              └──────────────┐
-        ▼                                           ▼
-┌───────────────────┐                 ┌───────────────────┐
-│  Codex CLI        │                 │  Gemini CLI       │
-│  [PRIMARY]        │                 │  [PRIMARY]        │
-│  gpt-5.3-codex   │                 │  gemini-3.1-pro   │
-│  Analysis·Review  │                 │  Design·Visual    │
-│  Validate·Debug   │                 │  UI/UX·SVG        │
-│  --sandbox ro     │                 │  -y (auto-accept) │
-└───────────────────┘                 └───────────────────┘
-```
-
-### Model Selection Strategy
-
-단일 모델 + `reasoning_effort` 레벨로 작업 무게에 따라 리소스를 조절합니다.
-
-| Task Weight | Codex Model | Reasoning | Use Case |
-|:------------|:-----------|:----------|:---------|
-| Light | `gpt-5.3-codex` | low | 스키마 검증, 패턴 매칭 |
-| Standard | `gpt-5.3-codex` | medium | 코드 분석, 스택 감지 |
-| Heavy | `gpt-5.3-codex` | high | 코드 리뷰, 아키텍처 분석 |
-| Critical | `gpt-5.3-codex` | xhigh | 보안 감사, 대규모 리팩토링 |
-
----
-
-## Dev Lifecycle
-
-open-pantheon은 포트폴리오 생성 외에도 개발 워크플로우를 통합 관리합니다.
-
-### Feature Development
-```
-/feature start "기능명"  →  branch + phase + sprint 연동
-/feature progress        →  진행률 업데이트
-/feature complete        →  PR + docs + quality-gate
-```
-
-### Quality Gates
-자동 품질 검증이 파이프라인의 핵심 단계에 통합:
-- **Pre-commit**: lint, format, types, secrets
-- **Pre-build**: content.json schema, tokens.css, no PLACEHOLDERs
-- **Pre-deploy**: full validation, site builds, deploy config
-- **Pre-release**: coverage, security scan, all docs
-
-### Hooks & Automation
-8개의 자동화 훅이 개발 작업을 모니터링:
-- Safety checks, progress tracking, doc sync, analytics
-- **State Machine bridge**: 상태 전이 시 quality-gate/feedback 자동 트리거
-- **Error Recovery**: Hook 실패 시 자동 복구 (지수적 백오프 재시도)
-
----
-
-## Agents (27)
-
-3개의 카테고리로 역할을 분담합니다.
-
-| Category | Agents | Purpose |
-|:---------|:------:|:--------|
-| **CLI-First** | 2 | `[PRIMARY]` Codex/Gemini CLI 기반 조사·분석·디자인 — 해당 도메인 작업 시 **최우선 호출** |
-| **Craft Pipeline** | 7 | 코드 분석, 경험 인터뷰, 사이트 빌드, 검증 |
-| **Dev Lifecycle** | 18 | 진행률 추적, 문서 관리, Git 워크플로우, 코드 리뷰, 테스트 |
-
-### CLI-First Agents (Priority Routing)
-
-| Agent | CLI | Triggers |
-|:------|:----|:---------|
-| **codex-reviewer** | Codex | 조사, 분석, 코드 검증, 교차 검증, AI 리뷰, 디버그, 보안 검사, 성능 분석 |
-| **design-agent** | Gemini | 디자인, UI, UX, 시각화, 다이어그램, SVG, 레이아웃, 컴포넌트 디자인 |
-
-> Agent 라우팅: `.claude/agents/MANIFEST.md` — 27 agents의 키워드(KO/EN) 매칭으로 자동 선택
-
----
-
-## Templates
-
-| Template | Stack | Best for |
-|:---------|:------|:---------|
-| **sveltekit-dashboard** | SvelteKit 5 | 대시보드, 워크플로우, 애니메이션 |
-| **astro-landing** | Astro 5 + Tailwind v4 | 제품 랜딩, 연구 쇼케이스 |
-
-### Design Presets
-
-<table>
-<tr><th colspan="4">Palettes</th></tr>
-<tr>
-  <td><b>automation</b><br/><sub>Dark + neon</sub></td>
-  <td><b>plugin-tool</b><br/><sub>Light/Dark dual</sub></td>
-  <td><b>ai-ml</b><br/><sub>Deep dark + gradient</sub></td>
-  <td><b>terminal</b><br/><sub>CLI aesthetic</sub></td>
-</tr>
-</table>
-
----
-
-## Commands (14)
-
-| Command | Description |
-|:--------|:-----------|
-| `/craft <repo>` | 전체 파이프라인 (Phase 1→2→3→3.5→4) |
-| `/craft-analyze <repo>` | Phase 1만 — 3 agents 병렬 분석 |
-| `/craft-export <project>` | 분석 결과를 Resumely 호환 Markdown으로 내보내기 |
-| `/craft-design <project>` | Phase 2만 — design-profile.yaml 생성 |
-| `/craft-preview <project>` | 로컬 빌드 + 검증 + 프리뷰 |
-| `/craft-deploy <project>` | 배포 (github-pages / vercel / netlify) |
-| `/craft-sync [project]` | 메인 포트폴리오와 동기화 |
-| `/craft-state <project>` | 상태 조회 / 로그 / 리셋 / 재개 |
-| `/feature` | 기능 개발 워크플로우 |
-| `/bugfix` | 버그 수정 워크플로우 |
-| `/release` | 릴리스 관리 |
-| `/phase` | Phase 관리 |
-| `/dev-doc-planner` | 문서 계획 |
-| `/git-workflow` | Git 워크플로우 |
-
----
-
-## Quick Start
+## Getting Started
 
 ```bash
 # 1. Clone
@@ -271,34 +66,6 @@ claude
 /craft-state my-project inspect
 ```
 
----
+## License
 
-## At a Glance
-
-| | Count |
-|:--|------:|
-| AI Agents | **27** (2 CLI-First + 7 Craft + 18 Dev) |
-| CLI Providers | **3** (Claude + Codex + Gemini) |
-| Skills | **29** (23 dirs + 6 legacy) |
-| Slash Commands | **14** |
-| Hooks | **8** |
-| State Machine States | **13** |
-| Quality Gates | **6** (commit, merge, build, deploy, release, post-release) |
-| Template Stacks | **2** (+ 4 planned) |
-| Design Palettes | **4** |
-| Domain Profiles | **8** |
-
----
-
-## Philosophy
-
-> **No two projects should look the same.**
-> **No development workflow should be manual.**
-
-open-pantheon은 코드를 읽고, 히스토리를 추적하고, 아키텍처를 파악한 뒤에야 디자인이 결정됩니다. 동시에 개발 프로세스 전체를 자동화하여 품질과 속도를 모두 잡습니다.
-
----
-
-<div align="center">
-<sub>Built with <a href="https://claude.ai/claude-code">Claude Code</a> + <a href="https://github.com/openai/codex">Codex CLI</a> + <a href="https://github.com/google-gemini/gemini-cli">Gemini CLI</a></sub>
-</div>
+MIT
